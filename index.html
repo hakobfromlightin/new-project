@@ -6,25 +6,9 @@
 </head>
 <body>
 <div id="app">
-    <form>
-        <span class="error" v-show="!message">
-            You must enter a message
-        </span>
-        <br>
-
-        <textarea v-model="message">
-
-        </textarea>
-
-        <br>
-        <button type="submit" v-if="message">
-            Send Message
+        <button type="submit" @click="updateCount">
+            Count {{ count }}
         </button>
-
-        <pre>
-            {{ $data | json }}
-        </pre>
-    </form>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
@@ -32,7 +16,12 @@
     new Vue({
         el: '#app',
         data: {
-            message: ''
+            count: 0
+        },
+        methods: {
+            updateCount: function () {
+                this.count += 1;
+            }
         }
     });
 </script>
