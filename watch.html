@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Watch</title>
+</head>
+<body>
+<div id="app">
+    <h1>{{ fullName }}</h1>
+    <input type="text" v-model="first" placeholder="First Name">
+    <input type="text" v-model="last" placeholder="Last Name">
+</div>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.1/vue.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+
+        data: {
+            first: 'Hakob',
+            last: 'Baghdasaryan',
+            fullName: 'Hakob Baghdasaryan'
+        },
+
+        watch: {
+            first: function (first) {
+                this.fullName = first + ' ' + this.last;
+            },
+
+            last: function (last) {
+                this.fullName = this.first + ' ' +  last;
+            }
+        }
+    });
+</script>
+</body>
+</html>

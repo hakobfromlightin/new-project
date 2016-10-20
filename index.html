@@ -2,37 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
 </head>
 <body>
 <div id="app">
-    <counter subject="Likes"></counter>
-    <counter subject="Disl ikes"></counter>
+
 </div>
 
-<template id="counter-template">
-    <div>
-        <h1>{{ subject }}</h1>
-        <button @click="count += 1">{{ count }}</button>
-    </div>
-</template>
-
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.1/vue.js"></script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.1/vue.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>-->
 
 <script>
-    Vue.component('counter', {
-        template: '#counter-template',
-
-        props: ['subject'],
-
-        data: function () {
-            return { count: 0 };
-        }
-    });
-
     new Vue({
-        el: '#app'
+        el: '#app',
+
+        data: {
+
+        }
     });
 </script>
 </body>
