@@ -6,23 +6,33 @@
 </head>
 <body>
 <div id="app">
-        <button type="submit" @click="updateCount">
-            Count {{ count }}
-        </button>
+    <counter subject="Likes"></counter>
+    <counter subject="Disl ikes"></counter>
 </div>
 
+<template id="counter-template">
+    <div>
+        <h1>{{ subject }}</h1>
+        <button @click="count += 1">{{ count }}</button>
+    </div>
+</template>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.1/vue.js"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+
 <script>
-    new Vue({
-        el: '#app',
-        data: {
-            count: 0
-        },
-        methods: {
-            updateCount: function () {
-                this.count += 1;
-            }
+    Vue.component('counter', {
+        template: '#counter-template',
+
+        props: ['subject'],
+
+        data: function () {
+            return { count: 0 };
         }
+    });
+
+    new Vue({
+        el: '#app'
     });
 </script>
 </body>
