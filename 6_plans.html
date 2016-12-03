@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Plans</title>
 </head>
 <body>
 <div id="app">
     <div v-for="plan in plans">
-        <plan :plan="plan" :active.sync="active" inline-template>
+        <plan :plan="plan" :active-in-child.sync="active" inline-template>
             <div>
                 <span>{{ plan.name }}</span>
                 <span>{{ plan.price }}/month</span>
-                <button @click="setActivePlan" v-if="plan.name !== active.name ">
+                <button @click="setActivePlan" v-if="plan.name !== activeInChild.name">
                     {{ isUpgrade ? 'Upgrade' : 'Downgrade' }}
                 </button>
 
@@ -22,8 +22,7 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>-->
-
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.3/vue.js"></script>-->
 <script>
     new Vue({
         el: '#app',
@@ -40,17 +39,17 @@
 
         components: {
             plan: {
-                props: ['plan', 'active'],
+                props: ['plan', 'activeInChild'],
 
                 computed: {
                     isUpgrade: function () {
-                        return this.plan.price > this.active.price
+                        return this.plan.price > this.activeInChild.price;
                     }
                 },
 
                 methods: {
                     setActivePlan: function () {
-                        this.active = this.plan;
+                        this.activeInChild = this.plan;
                     }
                 }
             }

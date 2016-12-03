@@ -6,13 +6,14 @@
 </head>
 <body>
 <div id="app">
-    <h1>{{ fullName }}</h1>
-    <input type="text" v-model="first" placeholder="First Name">
-    <input type="text" v-model="last" placeholder="Last Name">
+    <h1>{{ full }}</h1>
+    <input v-model="first">
+    <input v-model="last">
+
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
-
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.3/vue.js"></script>
 <script>
     new Vue({
         el: '#app',
@@ -20,16 +21,16 @@
         data: {
             first: 'Hakob',
             last: 'Baghdasaryan',
-            fullName: 'Hakob Baghdasaryan'
+            full: 'Hakob Baghdasaryan'
         },
 
         watch: {
             first: function (first) {
-                this.fullName = first + ' ' + this.last;
+                this.full = first + ' ' + this.last
             },
 
             last: function (last) {
-                this.fullName = this.first + ' ' +  last;
+                this.full = this.first + ' ' + last
             }
         }
     });

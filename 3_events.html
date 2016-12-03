@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+</head>
+<body>
+<div id="app">
+    <form action="3_done.html" @submit.prevent="handleIt">
+        <button type="submit">
+            Submit Me!
+        </button>
+    </form>
+
+    <hr>
+
+    <button type="submit" @click="updateCount">
+        Increment Counter: {{ count }}
+    </button>
+</div>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.3/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        },
+        methods: {
+            handleIt: function () {
+                alert('hi there');
+            },
+            updateCount: function () {
+                this.count += 1;
+            }
+        }
+    });
+</script>
+</body>
+</html>

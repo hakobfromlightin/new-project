@@ -7,18 +7,18 @@
 <body>
 <div id="app">
     <counter subject="Likes"></counter>
-    <counter subject="Disl ikes"></counter>
+    <counter subject="Dislikes"></counter>
 </div>
 
 <template id="counter-template">
     <div>
         <h1>{{ subject }}</h1>
-        <button @click="count += 1">{{ count }}</button>
+        <button @click="updateCount">Increment: {{ count }}</button>
     </div>
 </template>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
-
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.3/vue.js"></script>
 <script>
     Vue.component('counter', {
         template: '#counter-template',
@@ -26,7 +26,15 @@
         props: ['subject'],
 
         data: function () {
-            return { count: 0 };
+            return {
+                count: 0
+            };
+        },
+
+        methods: {
+            updateCount: function () {
+                this.count += 1;
+            }
         }
     });
 
