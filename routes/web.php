@@ -14,5 +14,5 @@
 Route::get('/', function () {
     $tasks = App\Task::latest()->get();
 
-    return view('lessons.13_browserify', compact('tasks'));
+    return view('lessons.14_filters', compact('tasks'));
 });
