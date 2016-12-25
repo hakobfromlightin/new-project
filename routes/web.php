@@ -14,5 +14,5 @@
 Route::get('/', function () {
     $tasks = App\Task::latest()->get();
 
-    return view('lessons.14_filters', compact('tasks'));
+    return view('lessons.15_custom_events', compact('tasks'));
 });
