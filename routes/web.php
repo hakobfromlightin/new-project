@@ -1,18 +1,18 @@
  <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
 
-Route::get('/', function () {
-    $tasks = App\Task::latest()->get();
+ use App\Task;
 
-    return view('lessons.15_custom_events', compact('tasks'));
-});
+ Route::group(['middleware' => ['web']], function (){
+     Route::get('/', function () {
+
+         $tasks = App\Task::latest()->get();
+//         dd($tasks);
+
+         return view('lessons.16_custom_directives', compact('tasks'));
+     });
+
+     Route::delete('tasks/{task}', function (Task $task){
+         $task->delete();
+     });
+ });
