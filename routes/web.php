@@ -9,7 +9,7 @@
          $tasks = App\Task::latest()->get();
 //         dd($tasks);
 
-         return view('lessons.16_custom_directives', compact('tasks'));
+         return view('lessons.18_duplicate_state', compact('tasks'));
      });
 
      Route::delete('tasks/{task}', function (Task $task){
